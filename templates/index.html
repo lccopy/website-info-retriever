@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        }
+    </style>
+    <script>
+        function clearInputs() {
+            document.getElementById('url').value = '';
+            document.getElementById('query').value = '';
+        }
+    </script>
+</head>
+
+<body class="h-screen font-sans antialiased text-gray-900">
+
+    <div class="container mx-auto flex items-center justify-center h-full">
+
+        <div class="w-full max-w-md p-8 m-4 bg-white shadow-lg rounded-xl">
+
+            <h2 class="text-3xl font-semibold mb-6 tracking-wide">Website Info Retriever</h2>
+            <form method="post">
+                <div class="mb-4">
+                    <label for="url" class="block text-sm font-medium tracking-wide">URL:</label>
+                    <input type="text" class="mt-1 p-2 w-full border rounded-xl border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="url" name="url" value="{{ url or '' }}" placeholder="Insert the link">
+                </div>
+                <div class="mb-4">
+                    <label for="query" class="block text-sm font-medium tracking-wide">Your question:</label>
+                    <input type="text" class="mt-1 p-2 w-full border rounded-xl border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="query" name="query" value="{{ query or '' }}" placeholder="Insert your question">
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <button type="submit" class="py-2 px-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 transition duration-300">Submit</button>
+                    <button type="button" onclick="clearInputs()" class="py-2 px-4 bg-red-500 text-white rounded-xl hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 transition duration-300">Reset</button>
+                </div>
+            </form>
+
+            {% if response %}
+            <div class="p-4 mt-6 bg-gray-100 rounded-xl shadow-md">
+                <h4 class="text-lg font-semibold mb-2">AI answer:</h4>
+                <p class="text-gray-700">{{ response }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

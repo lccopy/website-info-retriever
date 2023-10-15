@@ -1,0 +1,4 @@
+faiss-gpu
+tiktoken
+flask
+openai
