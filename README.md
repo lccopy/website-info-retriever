@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Flask web app that allows users to ask questions and retrieve information from any website, **using url only**.
+An app using Flask UI that allows users to ask questions and retrieve information from any website, **using url only**.
 
 ## How It Works
 
